@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0761DD3646D3B8DC69A38B2A /* Pods_YADL_Reference_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0BF5694A7F2E2D446903477 /* Pods_YADL_Reference_App.framework */; };
+		7918E9EC22258C1EC4FBB85E /* Pods_YADL_Reference_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836D002FDC00B328D7CDAAD4 /* Pods_YADL_Reference_AppTests.framework */; };
+		CF0A6E4F1FB14EE8005ADC8F /* YADLOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E4E1FB14EE8005ADC8F /* YADLOnboardingViewController.swift */; };
+		CF0A6E511FB14EFA005ADC8F /* YADLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E501FB14EFA005ADC8F /* YADLViewController.swift */; };
+		CF0A6E531FB14F07005ADC8F /* YADLSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E521FB14F07005ADC8F /* YADLSettingsViewController.swift */; };
+		CF0A6E551FB14FEE005ADC8F /* YADLOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */; };
+		CF0A6E571FB15323005ADC8F /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E561FB15323005ADC8F /* notification.json */; };
+		CF0A6E591FB15422005ADC8F /* yadl_spot.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E581FB15422005ADC8F /* yadl_spot.json */; };
 		CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9907351FAFFAAD006149E7 /* AppDelegate.swift */; };
-		CF9907381FAFFAAD006149E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9907371FAFFAAD006149E7 /* ViewController.swift */; };
 		CF99073B1FAFFAAE006149E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9907391FAFFAAE006149E7 /* Main.storyboard */; };
-		CF99073D1FAFFAAE006149E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF99073C1FAFFAAE006149E7 /* Assets.xcassets */; };
+		CF99073D1FAFFAAE006149E7 /* YADL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF99073C1FAFFAAE006149E7 /* YADL.xcassets */; };
 		CF9907401FAFFAAE006149E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF99073E1FAFFAAE006149E7 /* LaunchScreen.storyboard */; };
 		CF99074B1FAFFAAE006149E7 /* YADL_Reference_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF99074A1FAFFAAE006149E7 /* YADL_Reference_AppTests.swift */; };
+		CF9907591FB0BB3F006149E7 /* RSStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9907581FB0BB3F006149E7 /* RSStore.swift */; };
+		CF99075C1FB0BB72006149E7 /* sample.json in Resources */ = {isa = PBXBuildFile; fileRef = CF99075B1FB0BB72006149E7 /* sample.json */; };
+		CF99075E1FB0BD07006149E7 /* OMHClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF99075D1FB0BD07006149E7 /* OMHClient.plist */; };
+		CF9907601FB0BE6D006149E7 /* yadl_full.json in Resources */ = {isa = PBXBuildFile; fileRef = CF99075F1FB0BE6D006149E7 /* yadl_full.json */; };
+		CF9907631FB0C379006149E7 /* MEDL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9907621FB0C379006149E7 /* MEDL.xcassets */; };
+		CF9907651FB0C3F1006149E7 /* MEDL.json in Resources */ = {isa = PBXBuildFile; fileRef = CF9907641FB0C3F1006149E7 /* MEDL.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +39,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D847210FA4C7A087FEE11E2 /* Pods-YADL Reference AppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YADL Reference AppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YADL Reference AppTests/Pods-YADL Reference AppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B1068343AC502CA63245454 /* Pods-YADL Reference App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YADL Reference App.release.xcconfig"; path = "Pods/Target Support Files/Pods-YADL Reference App/Pods-YADL Reference App.release.xcconfig"; sourceTree = "<group>"; };
+		836D002FDC00B328D7CDAAD4 /* Pods_YADL_Reference_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YADL_Reference_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AF64A9EB551EB5DA7C41AA4 /* Pods-YADL Reference App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YADL Reference App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YADL Reference App/Pods-YADL Reference App.debug.xcconfig"; sourceTree = "<group>"; };
+		A0BF5694A7F2E2D446903477 /* Pods_YADL_Reference_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YADL_Reference_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6F5963C6AF6CCB36E53B976 /* Pods-YADL Reference AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YADL Reference AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YADL Reference AppTests/Pods-YADL Reference AppTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF0A6E4E1FB14EE8005ADC8F /* YADLOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLOnboardingViewController.swift; sourceTree = "<group>"; };
+		CF0A6E501FB14EFA005ADC8F /* YADLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLViewController.swift; sourceTree = "<group>"; };
+		CF0A6E521FB14F07005ADC8F /* YADLSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YADLSettingsViewController.swift; sourceTree = "<group>"; };
+		CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YADLOnboarding.storyboard; sourceTree = "<group>"; };
+		CF0A6E561FB15323005ADC8F /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
+		CF0A6E581FB15422005ADC8F /* yadl_spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yadl_spot.json; sourceTree = "<group>"; };
 		CF9907321FAFFAAD006149E7 /* YADL Reference App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YADL Reference App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9907351FAFFAAD006149E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF9907371FAFFAAD006149E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF99073A1FAFFAAE006149E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CF99073C1FAFFAAE006149E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CF99073C1FAFFAAE006149E7 /* YADL.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = YADL.xcassets; sourceTree = "<group>"; };
 		CF99073F1FAFFAAE006149E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF9907411FAFFAAE006149E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF9907461FAFFAAE006149E7 /* YADL Reference AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YADL Reference AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF99074A1FAFFAAE006149E7 /* YADL_Reference_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YADL_Reference_AppTests.swift; sourceTree = "<group>"; };
 		CF99074C1FAFFAAE006149E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF9907581FB0BB3F006149E7 /* RSStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSStore.swift; sourceTree = "<group>"; };
+		CF99075B1FB0BB72006149E7 /* sample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sample.json; sourceTree = "<group>"; };
+		CF99075D1FB0BD07006149E7 /* OMHClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OMHClient.plist; sourceTree = "<group>"; };
+		CF99075F1FB0BE6D006149E7 /* yadl_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yadl_full.json; sourceTree = "<group>"; };
+		CF9907621FB0C379006149E7 /* MEDL.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MEDL.xcassets; sourceTree = "<group>"; };
+		CF9907641FB0C3F1006149E7 /* MEDL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MEDL.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0761DD3646D3B8DC69A38B2A /* Pods_YADL_Reference_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +81,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7918E9EC22258C1EC4FBB85E /* Pods_YADL_Reference_AppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		605A271F0436A84C23C03A29 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A0BF5694A7F2E2D446903477 /* Pods_YADL_Reference_App.framework */,
+				836D002FDC00B328D7CDAAD4 /* Pods_YADL_Reference_AppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CF9907291FAFFAAD006149E7 = {
 			isa = PBXGroup;
 			children = (
 				CF9907341FAFFAAD006149E7 /* YADL Reference App */,
 				CF9907491FAFFAAE006149E7 /* YADL Reference AppTests */,
 				CF9907331FAFFAAD006149E7 /* Products */,
+				F57CF85DFB26D1C30A9D7ED4 /* Pods */,
+				605A271F0436A84C23C03A29 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +120,14 @@
 		CF9907341FAFFAAD006149E7 /* YADL Reference App */ = {
 			isa = PBXGroup;
 			children = (
+				CF9907571FB0BB06006149E7 /* Storyboards */,
+				CF9907561FB0BAFD006149E7 /* Support Files */,
+				CF9907551FB0BAF4006149E7 /* config */,
 				CF9907351FAFFAAD006149E7 /* AppDelegate.swift */,
-				CF9907371FAFFAAD006149E7 /* ViewController.swift */,
-				CF9907391FAFFAAE006149E7 /* Main.storyboard */,
-				CF99073C1FAFFAAE006149E7 /* Assets.xcassets */,
-				CF99073E1FAFFAAE006149E7 /* LaunchScreen.storyboard */,
-				CF9907411FAFFAAE006149E7 /* Info.plist */,
+				CF9907581FB0BB3F006149E7 /* RSStore.swift */,
+				CF0A6E4E1FB14EE8005ADC8F /* YADLOnboardingViewController.swift */,
+				CF0A6E501FB14EFA005ADC8F /* YADLViewController.swift */,
+				CF0A6E521FB14F07005ADC8F /* YADLSettingsViewController.swift */,
 			);
 			path = "YADL Reference App";
 			sourceTree = "<group>";
@@ -96,6 +141,58 @@
 			path = "YADL Reference AppTests";
 			sourceTree = "<group>";
 		};
+		CF9907551FB0BAF4006149E7 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				CF99075A1FB0BB5B006149E7 /* json */,
+			);
+			name = config;
+			sourceTree = "<group>";
+		};
+		CF9907561FB0BAFD006149E7 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF99075D1FB0BD07006149E7 /* OMHClient.plist */,
+				CF99073C1FAFFAAE006149E7 /* YADL.xcassets */,
+				CF9907411FAFFAAE006149E7 /* Info.plist */,
+				CF9907621FB0C379006149E7 /* MEDL.xcassets */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		CF9907571FB0BB06006149E7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CF9907391FAFFAAE006149E7 /* Main.storyboard */,
+				CF99073E1FAFFAAE006149E7 /* LaunchScreen.storyboard */,
+				CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		CF99075A1FB0BB5B006149E7 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				CF99075B1FB0BB72006149E7 /* sample.json */,
+				CF99075F1FB0BE6D006149E7 /* yadl_full.json */,
+				CF9907641FB0C3F1006149E7 /* MEDL.json */,
+				CF0A6E561FB15323005ADC8F /* notification.json */,
+				CF0A6E581FB15422005ADC8F /* yadl_spot.json */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
+		F57CF85DFB26D1C30A9D7ED4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9AF64A9EB551EB5DA7C41AA4 /* Pods-YADL Reference App.debug.xcconfig */,
+				7B1068343AC502CA63245454 /* Pods-YADL Reference App.release.xcconfig */,
+				4D847210FA4C7A087FEE11E2 /* Pods-YADL Reference AppTests.debug.xcconfig */,
+				C6F5963C6AF6CCB36E53B976 /* Pods-YADL Reference AppTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF99074F1FAFFAAE006149E7 /* Build configuration list for PBXNativeTarget "YADL Reference App" */;
 			buildPhases = (
+				BB25AE44142A0D579FA5D3BF /* [CP] Check Pods Manifest.lock */,
 				CF99072E1FAFFAAD006149E7 /* Sources */,
 				CF99072F1FAFFAAD006149E7 /* Frameworks */,
 				CF9907301FAFFAAD006149E7 /* Resources */,
+				52E223513263D3AA7D3C77FD /* [CP] Embed Pods Frameworks */,
+				DF804C2CA08E32DE4F538447 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF9907521FAFFAAE006149E7 /* Build configuration list for PBXNativeTarget "YADL Reference AppTests" */;
 			buildPhases = (
+				B3091E390AB6FAC14C197EC9 /* [CP] Check Pods Manifest.lock */,
 				CF9907421FAFFAAE006149E7 /* Sources */,
 				CF9907431FAFFAAE006149E7 /* Frameworks */,
 				CF9907441FAFFAAE006149E7 /* Resources */,
+				089B2645600AF4A3B25E3A31 /* [CP] Embed Pods Frameworks */,
+				A7053E7B273C2DE9408D2C98 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -147,11 +250,13 @@
 					CF9907311FAFFAAD006149E7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = E8AN4S9FD3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					CF9907451FAFFAAE006149E7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = E8AN4S9FD3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = CF9907311FAFFAAD006149E7;
 					};
@@ -181,8 +286,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF9907631FB0C379006149E7 /* MEDL.xcassets in Resources */,
 				CF9907401FAFFAAE006149E7 /* LaunchScreen.storyboard in Resources */,
-				CF99073D1FAFFAAE006149E7 /* Assets.xcassets in Resources */,
+				CF0A6E571FB15323005ADC8F /* notification.json in Resources */,
+				CF99075C1FB0BB72006149E7 /* sample.json in Resources */,
+				CF9907651FB0C3F1006149E7 /* MEDL.json in Resources */,
+				CF99073D1FAFFAAE006149E7 /* YADL.xcassets in Resources */,
+				CF9907601FB0BE6D006149E7 /* yadl_full.json in Resources */,
+				CF0A6E551FB14FEE005ADC8F /* YADLOnboarding.storyboard in Resources */,
+				CF99075E1FB0BD07006149E7 /* OMHClient.plist in Resources */,
+				CF0A6E591FB15422005ADC8F /* yadl_spot.json in Resources */,
 				CF99073B1FAFFAAE006149E7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,13 +309,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		089B2645600AF4A3B25E3A31 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YADL Reference AppTests/Pods-YADL Reference AppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52E223513263D3AA7D3C77FD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YADL Reference App/Pods-YADL Reference App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7053E7B273C2DE9408D2C98 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YADL Reference AppTests/Pods-YADL Reference AppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3091E390AB6FAC14C197EC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB25AE44142A0D579FA5D3BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DF804C2CA08E32DE4F538447 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YADL Reference App/Pods-YADL Reference App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CF99072E1FAFFAAD006149E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF9907381FAFFAAD006149E7 /* ViewController.swift in Sources */,
+				CF0A6E4F1FB14EE8005ADC8F /* YADLOnboardingViewController.swift in Sources */,
+				CF0A6E531FB14F07005ADC8F /* YADLSettingsViewController.swift in Sources */,
 				CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */,
+				CF0A6E511FB14EFA005ADC8F /* YADLViewController.swift in Sources */,
+				CF9907591FB0BB3F006149E7 /* RSStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +548,7 @@
 		};
 		CF9907501FAFFAAE006149E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9AF64A9EB551EB5DA7C41AA4 /* Pods-YADL Reference App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E8AN4S9FD3;
@@ -352,6 +562,7 @@
 		};
 		CF9907511FAFFAAE006149E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B1068343AC502CA63245454 /* Pods-YADL Reference App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E8AN4S9FD3;
@@ -365,6 +576,7 @@
 		};
 		CF9907531FAFFAAE006149E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D847210FA4C7A087FEE11E2 /* Pods-YADL Reference AppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -380,6 +592,7 @@
 		};
 		CF9907541FAFFAAE006149E7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6F5963C6AF6CCB36E53B976 /* Pods-YADL Reference AppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -412,6 +625,7 @@
 				CF9907511FAFFAAE006149E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF9907521FAFFAAE006149E7 /* Build configuration list for PBXNativeTarget "YADL Reference AppTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +634,7 @@
 				CF9907541FAFFAAE006149E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

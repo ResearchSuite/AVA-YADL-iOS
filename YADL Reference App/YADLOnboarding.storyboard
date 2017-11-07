@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tnf-PG-H3F">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="u6D-ZB-yTY">
+            <objects>
+                <viewController id="tnf-PG-H3F" customClass="YADLOnboardingViewController" customModule="YADL_Reference_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tj5-5U-5qi"/>
+                        <viewControllerLayoutGuide type="bottom" id="cVO-Ar-pAX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZP1-3f-YCC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hi! 👋👋 Welcome to YADL " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rd-QK-Vup">
+                                <rect key="frame" x="112" y="123.5" width="150" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="HdK-xf-uOp"/>
+                                    <constraint firstAttribute="width" constant="150" id="Yox-q4-VVs"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yadl_icon" translatesAutoresizingMaskIntoConstraints="NO" id="fPs-kY-wKT">
+                                <rect key="frame" x="112" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="1bc-8M-6GY"/>
+                                    <constraint firstAttribute="width" constant="150" id="aKf-Ew-Aac"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ot-t6-ew5">
+                                <rect key="frame" x="121" y="463" width="106" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="7Q6-BH-tna"/>
+                                    <constraint firstAttribute="width" constant="106" id="tkN-Vn-UJK"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startAction:" destination="tnf-PG-H3F" eventType="touchUpInside" id="eJr-ht-c2Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Ot-t6-ew5" firstAttribute="top" secondItem="fPs-kY-wKT" secondAttribute="bottom" constant="56.5" id="7Q7-HY-Y8m"/>
+                            <constraint firstItem="6Ot-t6-ew5" firstAttribute="centerX" secondItem="ZP1-3f-YCC" secondAttribute="centerX" id="KPF-BG-Qsz"/>
+                            <constraint firstItem="fPs-kY-wKT" firstAttribute="centerX" secondItem="ZP1-3f-YCC" secondAttribute="centerX" id="Oye-2n-ETS"/>
+                            <constraint firstItem="fPs-kY-wKT" firstAttribute="centerY" secondItem="ZP1-3f-YCC" secondAttribute="centerY" id="W5h-Iy-ksk"/>
+                            <constraint firstItem="7Rd-QK-Vup" firstAttribute="centerX" secondItem="ZP1-3f-YCC" secondAttribute="centerX" id="cdd-of-TcF"/>
+                            <constraint firstItem="fPs-kY-wKT" firstAttribute="top" secondItem="7Rd-QK-Vup" secondAttribute="bottom" constant="76" id="p4h-i9-U8k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="6Ot-t6-ew5" id="7mN-ci-c5d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KH3-2y-CDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-134" y="147"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="yadl_icon" width="1284" height="1305"/>
+    </resources>
+</document>

@@ -15,6 +15,7 @@
 		CF0A6E551FB14FEE005ADC8F /* YADLOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */; };
 		CF0A6E571FB15323005ADC8F /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E561FB15323005ADC8F /* notification.json */; };
 		CF0A6E591FB15422005ADC8F /* yadl_spot.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E581FB15422005ADC8F /* yadl_spot.json */; };
+		CF93E8D11FBAA02B00740559 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF93E8D01FBAA02B00740559 /* Settings.bundle */; };
 		CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9907351FAFFAAD006149E7 /* AppDelegate.swift */; };
 		CF99073B1FAFFAAE006149E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9907391FAFFAAE006149E7 /* Main.storyboard */; };
 		CF99073D1FAFFAAE006149E7 /* YADL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF99073C1FAFFAAE006149E7 /* YADL.xcassets */; };
@@ -51,6 +52,7 @@
 		CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YADLOnboarding.storyboard; sourceTree = "<group>"; };
 		CF0A6E561FB15323005ADC8F /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
 		CF0A6E581FB15422005ADC8F /* yadl_spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yadl_spot.json; sourceTree = "<group>"; };
+		CF93E8D01FBAA02B00740559 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		CF9907321FAFFAAD006149E7 /* YADL Reference App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YADL Reference App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9907351FAFFAAD006149E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF99073A1FAFFAAE006149E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				CF0A6E4E1FB14EE8005ADC8F /* YADLOnboardingViewController.swift */,
 				CF0A6E501FB14EFA005ADC8F /* YADLViewController.swift */,
 				CF0A6E521FB14F07005ADC8F /* YADLSettingsViewController.swift */,
+				CF93E8D01FBAA02B00740559 /* Settings.bundle */,
 			);
 			path = "YADL Reference App";
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				CF9907401FAFFAAE006149E7 /* LaunchScreen.storyboard in Resources */,
 				CF0A6E571FB15323005ADC8F /* notification.json in Resources */,
 				CF99075C1FB0BB72006149E7 /* sample.json in Resources */,
+				CF93E8D11FBAA02B00740559 /* Settings.bundle in Resources */,
 				CF9907651FB0C3F1006149E7 /* MEDL.json in Resources */,
 				CF99073D1FAFFAAE006149E7 /* YADL.xcassets in Resources */,
 				CF9907601FB0BE6D006149E7 /* yadl_full.json in Resources */,

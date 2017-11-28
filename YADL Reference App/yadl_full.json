@@ -6,6 +6,7 @@
     "activity": {
         "type"      : "elementList",
         "identifier": "yadl_full_assessment",
+        "optional":false,
         "elements"   : [
                         {
                         "identifier"   : "introduction",
@@ -78,5 +79,30 @@
                         }
                         ]
     },
-    "resultTransforms": []
+    "resultTransforms": [
+                         {
+                         "transform": "YADLFullRaw",
+                         "inputMapping": [
+                                          {"parameter":"ShortWalk", "stepIdentifier":"yadl_full.ShortWalk"},
+                                          {"parameter":"WalkingUpStairs", "stepIdentifier":"yadl_full.WalkingUpStairs"},
+                                          {"parameter":"Shopping", "stepIdentifier":"yadl_full.Shopping"},
+                                          {"parameter":"Lifting", "stepIdentifier":"yadl_full.Lifting"},
+                                          {"parameter":"Housework", "stepIdentifier":"yadl_full.Housework"},
+                                          {"parameter":"Dressing", "stepIdentifier":"yadl_full.Dressing"},
+                                          {"parameter":"BedToChair", "stepIdentifier":"yadl_full.BedToChair"},
+
+                                          {"parameter": "schemaID", "constant":{
+                                          "namespace": "Cornell",
+                                          "name": "yadl-full-assessment-dance",
+                                          "version": "1.0"
+                                          }
+                                          }
+                                          ]
+                         }
+                                          
+
+    
+    
+    
+    ]
 }

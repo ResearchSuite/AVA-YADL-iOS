@@ -10,11 +10,12 @@ target 'YADL Reference App' do
      pod "OhmageOMHSDK/RKSupport"
      pod "OhmageOMHSDK/RSRPSupport"
      pod "OhmageOMHSDK/RSTBSupport"
-     pod "sdlrkx"
+     pod "sdlrkx" 
      pod "ResearchKit"
      pod "ResearchSuiteTaskBuilder"
      pod "ResearchSuiteResultsProcessor"
      pod "ResearchSuiteAppFramework"
+     pod "ResearchSuiteResultsProcessor/CSVBackend"
 
   target 'YADL Reference AppTests' do
     inherit! :search_paths

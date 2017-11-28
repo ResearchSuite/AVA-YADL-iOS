@@ -16,6 +16,8 @@
 		CF0A6E571FB15323005ADC8F /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E561FB15323005ADC8F /* notification.json */; };
 		CF0A6E591FB15422005ADC8F /* yadl_spot.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E581FB15422005ADC8F /* yadl_spot.json */; };
 		CF93E8D11FBAA02B00740559 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF93E8D01FBAA02B00740559 /* Settings.bundle */; };
+		CF93E8D31FBB41F700740559 /* OMHClient.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF93E8D21FBB41F700740559 /* OMHClient.plist */; };
+		CF93E8D51FBB4B2E00740559 /* YADLFullRaw+RSRPCSVDatapoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF93E8D41FBB4B2E00740559 /* YADLFullRaw+RSRPCSVDatapoint.swift */; };
 		CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9907351FAFFAAD006149E7 /* AppDelegate.swift */; };
 		CF99073B1FAFFAAE006149E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9907391FAFFAAE006149E7 /* Main.storyboard */; };
 		CF99073D1FAFFAAE006149E7 /* YADL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF99073C1FAFFAAE006149E7 /* YADL.xcassets */; };
@@ -27,6 +29,8 @@
 		CF9907601FB0BE6D006149E7 /* yadl_full.json in Resources */ = {isa = PBXBuildFile; fileRef = CF99075F1FB0BE6D006149E7 /* yadl_full.json */; };
 		CF9907631FB0C379006149E7 /* MEDL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF9907621FB0C379006149E7 /* MEDL.xcassets */; };
 		CF9907651FB0C3F1006149E7 /* MEDL.json in Resources */ = {isa = PBXBuildFile; fileRef = CF9907641FB0C3F1006149E7 /* MEDL.json */; };
+		CFD493F31FCC8A1C008B135B /* YADLSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD493F21FCC8A1C008B135B /* YADLSettings.storyboard */; };
+		CFD493F51FCC9B69008B135B /* YADLFullSpot+RSRPCSVDatapoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFD493F41FCC9B69008B135B /* YADLFullSpot+RSRPCSVDatapoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,8 @@
 		CF0A6E561FB15323005ADC8F /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
 		CF0A6E581FB15422005ADC8F /* yadl_spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yadl_spot.json; sourceTree = "<group>"; };
 		CF93E8D01FBAA02B00740559 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		CF93E8D21FBB41F700740559 /* OMHClient.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OMHClient.plist; sourceTree = "<group>"; };
+		CF93E8D41FBB4B2E00740559 /* YADLFullRaw+RSRPCSVDatapoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YADLFullRaw+RSRPCSVDatapoint.swift"; sourceTree = "<group>"; };
 		CF9907321FAFFAAD006149E7 /* YADL Reference App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YADL Reference App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9907351FAFFAAD006149E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF99073A1FAFFAAE006149E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 		CF99075F1FB0BE6D006149E7 /* yadl_full.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yadl_full.json; sourceTree = "<group>"; };
 		CF9907621FB0C379006149E7 /* MEDL.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MEDL.xcassets; sourceTree = "<group>"; };
 		CF9907641FB0C3F1006149E7 /* MEDL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MEDL.json; sourceTree = "<group>"; };
+		CFD493F21FCC8A1C008B135B /* YADLSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = YADLSettings.storyboard; sourceTree = "<group>"; };
+		CFD493F41FCC9B69008B135B /* YADLFullSpot+RSRPCSVDatapoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "YADLFullSpot+RSRPCSVDatapoint.swift"; path = "../YADLFullSpot+RSRPCSVDatapoint.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +134,13 @@
 				CF9907561FB0BAFD006149E7 /* Support Files */,
 				CF9907551FB0BAF4006149E7 /* config */,
 				CF9907351FAFFAAD006149E7 /* AppDelegate.swift */,
+				CFD493F41FCC9B69008B135B /* YADLFullSpot+RSRPCSVDatapoint.swift */,
 				CF9907581FB0BB3F006149E7 /* RSStore.swift */,
 				CF0A6E4E1FB14EE8005ADC8F /* YADLOnboardingViewController.swift */,
 				CF0A6E501FB14EFA005ADC8F /* YADLViewController.swift */,
 				CF0A6E521FB14F07005ADC8F /* YADLSettingsViewController.swift */,
 				CF93E8D01FBAA02B00740559 /* Settings.bundle */,
+				CF93E8D41FBB4B2E00740559 /* YADLFullRaw+RSRPCSVDatapoint.swift */,
 			);
 			path = "YADL Reference App";
 			sourceTree = "<group>";
@@ -155,6 +165,7 @@
 		CF9907561FB0BAFD006149E7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF93E8D21FBB41F700740559 /* OMHClient.plist */,
 				CF99075D1FB0BD07006149E7 /* OMHClient.plist */,
 				CF99073C1FAFFAAE006149E7 /* YADL.xcassets */,
 				CF9907411FAFFAAE006149E7 /* Info.plist */,
@@ -169,6 +180,7 @@
 				CF9907391FAFFAAE006149E7 /* Main.storyboard */,
 				CF99073E1FAFFAAE006149E7 /* LaunchScreen.storyboard */,
 				CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */,
+				CFD493F21FCC8A1C008B135B /* YADLSettings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -300,7 +312,9 @@
 				CF0A6E551FB14FEE005ADC8F /* YADLOnboarding.storyboard in Resources */,
 				CF99075E1FB0BD07006149E7 /* OMHClient.plist in Resources */,
 				CF0A6E591FB15422005ADC8F /* yadl_spot.json in Resources */,
+				CFD493F31FCC8A1C008B135B /* YADLSettings.storyboard in Resources */,
 				CF99073B1FAFFAAE006149E7 /* Main.storyboard in Resources */,
+				CF93E8D31FBB41F700740559 /* OMHClient.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +429,8 @@
 				CF0A6E531FB14F07005ADC8F /* YADLSettingsViewController.swift in Sources */,
 				CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */,
 				CF0A6E511FB14EFA005ADC8F /* YADLViewController.swift in Sources */,
+				CF93E8D51FBB4B2E00740559 /* YADLFullRaw+RSRPCSVDatapoint.swift in Sources */,
+				CFD493F51FCC9B69008B135B /* YADLFullSpot+RSRPCSVDatapoint.swift in Sources */,
 				CF9907591FB0BB3F006149E7 /* RSStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,6 +50,8 @@ PODS:
   - ResearchSuiteResultsProcessor/Core (0.4.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
+  - ResearchSuiteResultsProcessor/CSVBackend (0.4.0):
+    - ResearchSuiteResultsProcessor/Core
   - ResearchSuiteTaskBuilder (0.7.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
@@ -108,6 +110,7 @@ DEPENDENCIES:
   - ResearchKit
   - ResearchSuiteAppFramework
   - ResearchSuiteResultsProcessor
+  - ResearchSuiteResultsProcessor/CSVBackend
   - ResearchSuiteTaskBuilder
   - sdlrkx
 
@@ -127,6 +130,6 @@ SPEC CHECKSUMS:
   SecureQueue: 3aa95a5bba534c3aa938ae634333cbcf5919060b
   SwiftyMarkdown: e227c4f67000248358be3d566e5f51e9a020757d
 
-PODFILE CHECKSUM: 3b66ce414289820a31419212a1b2bc704a91e490
+PODFILE CHECKSUM: 05d76f7c9ca3d800a31747afd8c15e3d578ba799
 
 COCOAPODS: 1.0.1

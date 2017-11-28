@@ -13,6 +13,7 @@ import Gloss
 
 open class YADLFullRaw: RSRPIntermediateResult, RSRPFrontEndTransformer {
     static open let kType = "YADLFullRaw"
+    static open let skipped = "skipped"
     
     fileprivate static let supportedTypes = [
         kType
@@ -40,7 +41,7 @@ open class YADLFullRaw: RSRPIntermediateResult, RSRPFrontEndTransformer {
                 let identifier = stepResult.identifier.components(separatedBy: ".").last else {
                     return nil
             }
-            
+          
             return (identifier, answer)
         }
         
@@ -48,6 +49,30 @@ open class YADLFullRaw: RSRPIntermediateResult, RSRPFrontEndTransformer {
         results.forEach { (pair) in
             resultMap[pair.0] = pair.1
         }
+        
+        var skippedMap: [String: Bool] = [:]
+        for (keyParam,_) in parameters {
+            if keyParam != "schemaID"{
+                for (keyResult,_) in resultMap {
+                    if keyParam == keyResult {
+                        skippedMap[keyParam] = false
+                        break
+                    }
+                    else {
+                        skippedMap[keyParam] = true
+                    }
+                }
+            }
+        }
+        
+        for (key,value) in skippedMap {
+            if value == true {
+                resultMap[key] = "skipped"
+            }
+            
+        }
+            
+        
         
         return YADLFullRaw(
             uuid: UUID(),

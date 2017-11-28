@@ -73,5 +73,20 @@
                         }
                         ]
     },
-    "resultTransforms": []
+    "resultTransforms": [
+                         {
+                         "transform": "YADLSpotRaw",
+                         "inputMapping": [
+                                          {"parameter":"result", "stepIdentifier":"yadl_spot"},
+                                          {"parameter": "schemaID", "constant":{
+                                          "namespace": "Cornell",
+                                          "name": "yadl-spot-assessment-dance",
+                                          "version": "1.0"
+                                          }
+                                          }
+                                          ]
+                         }
+                         ]
+
+
 }

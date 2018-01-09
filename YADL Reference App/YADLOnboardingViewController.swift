@@ -62,7 +62,7 @@ class YADLOnboardingViewController: UIViewController {
             //process results
             if reason == ORKTaskViewControllerFinishReason.completed {
                 let taskResult = taskViewController.result
-                appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
+                //appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
                 
                 if(item.identifier == "notification_date"){
                     

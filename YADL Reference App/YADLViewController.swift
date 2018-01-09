@@ -21,12 +21,16 @@ class YADLViewController: UIViewController{
     var fullAssessmentItem: RSAFScheduleItem!
     var spotAssessmentItem: RSAFScheduleItem!
     
+    @IBOutlet
+    var tableView: UITableView!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         self.store = RSStore()
         
+                
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -151,6 +155,8 @@ class YADLViewController: UIViewController{
         self.present(tvc, animated: true, completion: nil)
         
     }
+    
+
 
 
 

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AC3F63AC46001E2222DDCF28B2E4A74D'
+               BlueprintIdentifier = '084F3248D16A13353E6FFEE8261025D7'
                BlueprintName = 'sdlrkx'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'sdlrkx.framework'>

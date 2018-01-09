@@ -9,7 +9,7 @@
 import UIKit
 import ResearchKit
 
-open class RSRPFrontEndService: NSObject {
+public class RSRPFrontEndService: NSObject {
     
     let transformers: [RSRPFrontEndTransformer.Type]
     
@@ -17,7 +17,7 @@ open class RSRPFrontEndService: NSObject {
         self.transformers = frontEndTransformers
     }
     
-    open func processResult(taskResult: ORKTaskResult, resultTransforms: [RSRPResultTransform]) -> [RSRPIntermediateResult] {
+    public func processResult(taskResult: ORKTaskResult, resultTransforms: [RSRPResultTransform]) -> [RSRPIntermediateResult] {
         
         let intermediateResults = resultTransforms.flatMap { (resultTransform) -> RSRPIntermediateResult? in
             
@@ -29,7 +29,7 @@ open class RSRPFrontEndService: NSObject {
         
     }
     
-    open static func processResult(taskResult: ORKTaskResult, resultTransform: RSRPResultTransform, frontEndTransformers: [RSRPFrontEndTransformer.Type]) -> RSRPIntermediateResult? {
+    public static func processResult(taskResult: ORKTaskResult, resultTransform: RSRPResultTransform, frontEndTransformers: [RSRPFrontEndTransformer.Type]) -> RSRPIntermediateResult? {
         
         var parameters: [String: AnyObject] = [:]
         resultTransform.inputMapping.forEach({ (inputMapping) in
@@ -71,7 +71,7 @@ open class RSRPFrontEndService: NSObject {
     }
     
     
-    fileprivate static func transformResult(
+    private static func transformResult(
         type: String,
         taskIdentifier: String,
         taskRunUUID: UUID,

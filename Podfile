@@ -6,16 +6,20 @@ target 'YADL Reference App' do
   use_frameworks!
 
   # Pods for YADL Reference App
+     pod "ResearchSuiteResultsProcessor", :path => '/Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/ResearchSuiteResultsProcessor-ios'
+     pod "ResearchSuiteResultsProcessor/CSVBackend", :path => '/Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/ResearchSuiteResultsProcessor-ios'
+     pod "SwiftyMarkdown", :git => 'https://github.com/avalla/SwiftyMarkdown', :branch => 'swift3'
      pod "OhmageOMHSDK"
      pod "OhmageOMHSDK/RKSupport"
      pod "OhmageOMHSDK/RSRPSupport"
      pod "OhmageOMHSDK/RSTBSupport"
-     pod "sdlrkx" 
+     pod "sdlrkx", :path => '/Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/sdl-rkx'
      pod "ResearchKit"
      pod "ResearchSuiteTaskBuilder"
-     pod "ResearchSuiteResultsProcessor"
      pod "ResearchSuiteAppFramework"
-     pod "ResearchSuiteResultsProcessor/CSVBackend"
+
+    
+    
 
   target 'YADL Reference AppTests' do
     inherit! :search_paths

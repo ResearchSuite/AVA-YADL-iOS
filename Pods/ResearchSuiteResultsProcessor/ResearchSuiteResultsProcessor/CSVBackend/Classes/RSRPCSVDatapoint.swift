@@ -22,7 +22,7 @@ extension RSRPCSVDatapointBuilder {
     }
 }
 
-open class RSRPCSVDatapoint {
+public class RSRPCSVDatapoint {
     
     let identifier: String
     let header: String
@@ -34,7 +34,7 @@ open class RSRPCSVDatapoint {
         self.records = records
     }
     
-    open func toString() -> String {
+    public func toString() -> String {
         let lines:[String] = [header] + records
         return lines.joined(separator: "\n")
     }

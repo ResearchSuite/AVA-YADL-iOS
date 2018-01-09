@@ -178,7 +178,7 @@ open class RSTBTaskBuilder {
     
     
     @available(*, deprecated)
-    open func processResult(result: ORKTaskResult, forElement jsonElement: JsonElement) -> [JSON]? {
+    open func processResult(_ result: ORKTaskResult, forElement jsonElement: JsonElement) -> [JSON]? {
         if let jsonObject = jsonElement as? JsonObject {
             return self.processResult(result: result, forObject: jsonObject)
         }
@@ -197,7 +197,7 @@ open class RSTBTaskBuilder {
             return nil
         }
         
-        return self.processResult(result: result, forElement: element)
+        return self.processResult(result, forElement: element)
         
     }
     
@@ -220,7 +220,7 @@ open class RSTBTaskBuilder {
                     return nil
             }
             
-            return self.processResult(result: result, forElement: jsonElement)
+            return self.processResult(result, forElement: jsonElement)
             
         default:
             guard let stepDescriptor = RSTBStepDescriptor(json: jsonObject),

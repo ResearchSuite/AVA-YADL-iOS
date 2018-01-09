@@ -20,12 +20,46 @@
                     <view key="view" contentMode="scaleToFill" id="xoT-pb-YTJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7KL-H4-mIu">
+                                <rect key="frame" x="0.0" y="83" width="375" height="584"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="a8K-ze-Cry" id="ttp-zn-kTT"/>
+                                    <outlet property="delegate" destination="a8K-ze-Cry" id="NBZ-Rv-Bfz"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jb2-jp-yfw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="1" green="0.60532481869999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="YADL" id="1DB-h5-bfb"/>
+                                </items>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jb2-jp-yfw" firstAttribute="top" secondItem="VHc-EH-O9a" secondAttribute="bottom" id="CzQ-h7-vbE"/>
+                            <constraint firstItem="Jb2-jp-yfw" firstAttribute="leading" secondItem="xoT-pb-YTJ" secondAttribute="leading" id="SFy-Rx-CMo"/>
+                            <constraint firstAttribute="trailing" secondItem="Jb2-jp-yfw" secondAttribute="trailing" id="wXP-l7-Zdt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="view" destination="7KL-H4-mIu" id="ziR-vg-HCh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="upW-Mb-liF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-158" y="117"/>
+            <point key="canvasLocation" x="-159.19999999999999" y="116.49175412293854"/>
         </scene>
     </scenes>
 </document>

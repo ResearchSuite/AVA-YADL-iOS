@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class RSRPCSVBackEnd: RSRPBackEnd {
+public class RSRPCSVBackEnd: RSRPBackEnd {
     
     
 //    var datapoints : [RSRPCSVDatapoint] = []
@@ -130,13 +130,9 @@ open class RSRPCSVBackEnd: RSRPBackEnd {
         
         if let builder = intermediateResult as? RSRPCSVDatapointBuilder {
             
-            
             let datapoint: RSRPCSVDatapoint = builder.toDatapoint()
             do {
-                let record = datapoint.records[0].components(separatedBy: ",")
-                let recordTimestamp = record[0]
-
-                try self.addFile(itemName: datapoint.identifier + "." + recordTimestamp + ".csv", text: datapoint.toString())
+                try self.addFile(itemName: datapoint.identifier + ".csv", text: datapoint.toString())
             }
             catch let error as NSError {
                 print(error)

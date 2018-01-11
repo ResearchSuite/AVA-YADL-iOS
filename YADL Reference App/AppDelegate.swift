@@ -84,8 +84,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             NSLog("Unable to create directory \(error.debugDescription)")
         }
         
-
-        
         self.store = RSStore()
         self.ohmageManager = self.initializeOhmage(credentialsStore: self.store)
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")

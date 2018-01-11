@@ -1,6 +1,6 @@
 ////
-////  PAMRaw+CSVEncodable.swift
-////  PAM-Reference-App
+////  YADLSpotRaw+CSVEncodable.swift
+////  YADL-Reference-App
 ////
 ////  Created by Christina Tsangouri on 1/5/17.
 ////  Copyright © 2017 Christina Tsangouri. All rights reserved.
@@ -21,6 +21,13 @@ extension YADLSpotRaw: CSVEncodable {
         
     }
     
+    open var yadlHeader : [String] {
+        
+        let yadlHeader = ["timestamp","BedToChair","Dressing","Housework","Lifting","Shopping","ShortWalk","WalkingUpStairs"]
+        
+        return yadlHeader
+    }
+    
     open static var header: String {
         
         let yadlHeader = ["timestamp","BedToChair","Dressing","Housework","Lifting","Shopping","ShortWalk","WalkingUpStairs"]
@@ -35,19 +42,20 @@ extension YADLSpotRaw: CSVEncodable {
         let time = self.stringFromDate(self.creationDateTime)
         var record = ""
         
-        let selectedCount = self.selected.count
-        let notSelectedCount = self.notSelected.count
-        let excludedCount = self.excluded.count
-        
-        for _ in 0 ..< selectedCount {
-            record = record + "selected,"
-        }
-        for _ in 0 ..< notSelectedCount {
-            record = record + "not selected,"
-        }
-        
-        for _ in 0 ..< excludedCount {
-            record = record + "excluded,"
+        for each in self.yadlHeader {
+            
+            if self.selected.contains(each){
+                record = record + "selected,"
+            }
+            
+            if self.notSelected.contains(each){
+                record = record + "not selected,"
+            }
+            
+            if self.excluded.contains(each){
+                record = record + "excluded,"
+            }
+            
         }
                 
         let completeRecord = time + "," + record

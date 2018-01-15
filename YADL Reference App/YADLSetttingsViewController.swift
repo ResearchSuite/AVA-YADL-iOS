@@ -12,9 +12,11 @@ import ResearchSuiteTaskBuilder
 import Gloss
 import ResearchSuiteAppFramework
 import UserNotifications
+import MessageUI
+import ResearchSuiteResultsProcessor
 
 
-class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate  {
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     
@@ -23,7 +25,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     
     var store: RSStore!
     
-    var items: [String] = ["Take Full Assessment", "Take Spot Assessment","Set Notification Time","Email Assessment Data","Sign out"]
+    var items: [String] = ["Take Full Assessment", "Take Spot Assessment","Set Notification Time","Email Full Assessment Data","Email Spot Assessment Data","Sign out"]
     var fullAssessmentItem: RSAFScheduleItem!
     var spotAssessmentItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
@@ -98,6 +100,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         
         tableView.deselectRow(at: indexPath, animated: true)
         
+        
         if indexPath.row == 0 {
             self.launchFullAssessment()
         }
@@ -111,10 +114,14 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         if indexPath.row == 3 {
-            self.sendEmail()
+            self.sendFullEmail()
         }
         
         if indexPath.row == 4 {
+            self.sendSpotEmail()
+        }
+        
+        if indexPath.row == 5 {
             self.signOut()
         }
         
@@ -135,8 +142,105 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         self.launchActivity(forItem: notificationItem)
     }
     
-    func sendEmail() {
+    func sendSpotEmail() {
         
+        let mailComposeViewController = configuredSpotMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+        
+        self.deleteSpotFile()
+    }
+    
+    func sendFullEmail() {
+        
+        let mailComposeViewController = configuredFullMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+        
+        self.deleteFullFile()
+    }
+    
+    func configuredSpotMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients([""])
+        mailComposerVC.setSubject("YADL Spot Data")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        
+        let attach = delegate.CSVBackend.getFileURLForType(typeIdentifier: "YADLSpot")
+        
+        do {
+            
+            if FileManager.default.fileExists(atPath: (attach?.path)!){
+                let cert = try NSData(contentsOfFile: (attach?.path)!)  as Data
+                
+                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "YADLSpot")
+                
+                return mailComposerVC
+                
+            }
+        } catch {
+            print(error)
+        }
+        
+        
+        return mailComposerVC
+    }
+    
+    
+    func configuredFullMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients([""])
+        mailComposerVC.setSubject("YADL Full Data")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        
+        let attach = delegate.CSVBackend.getFileURLForType(typeIdentifier: "YADLFull")
+        
+        do {
+            
+            if FileManager.default.fileExists(atPath: (attach?.path)!){
+                let cert = try NSData(contentsOfFile: (attach?.path)!)  as Data
+                
+                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "YADLFull")
+                
+                return mailComposerVC
+                
+            }
+        } catch {
+            print(error)
+        }
+        
+        
+        return mailComposerVC
+    }
+
+    func deleteFullFile() {
+        
+    }
+    
+    func deleteSpotFile() {
+        
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     func signOut() {

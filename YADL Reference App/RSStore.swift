@@ -11,7 +11,7 @@ import OhmageOMHSDK
 import ResearchSuiteAppFramework
 import ResearchSuiteTaskBuilder
 
-class RSStore: NSObject, OhmageOMHSDKCredentialStore, RSTBStateHelper, OhmageManagerProvider {
+class RSStore: NSObject, OhmageOMHSDKCredentialStore, RSTBStateHelper {
     
     func valueInState(forKey: String) -> NSSecureCoding? {
         return self.get(key: forKey)
@@ -27,10 +27,7 @@ class RSStore: NSObject, OhmageOMHSDKCredentialStore, RSTBStateHelper, OhmageMan
     func get(key: String) -> NSSecureCoding? {
         return RSAFKeychainStateManager.valueInState(forKey: key)
     }
-    
-    func getOhmageManager() -> OhmageOMHManager? {
-        return (UIApplication.shared.delegate as? AppDelegate)?.ohmageManager
-    }
+
     
     func reset() {
         RSAFKeychainStateManager.clearKeychain()

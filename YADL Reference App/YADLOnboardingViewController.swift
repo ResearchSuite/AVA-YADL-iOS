@@ -74,6 +74,11 @@ class YADLOnboardingViewController: UIViewController {
                     
                 }
                 
+                if(item.identifier == "yadl_spot") {
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "spotFileExists")
+                    self?.store.set(value: true as NSSecureCoding, key: "signedIn")
+                }
+                
                 if(item.identifier == "yadl_full"){
                     
                     // save date that full assessment was completed
@@ -82,6 +87,7 @@ class YADLOnboardingViewController: UIViewController {
                     
                     self?.store.setValueInState(value: date as NSSecureCoding, forKey: "dateFull")
                     
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "fullFileExists")
                     
                     // save for spot assessment
                     

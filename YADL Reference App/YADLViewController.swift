@@ -90,15 +90,20 @@ class YADLViewController: UIViewController{
         let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
             //when finised, if task was successful (e.g., wasn't canceled)
             //process results
+            
+            if reason == ORKTaskViewControllerFinishReason.discarded {
+                self?.store.setValueInState(value: false as NSSecureCoding, forKey: "shouldDoSpot")
+            }
+            
             if reason == ORKTaskViewControllerFinishReason.completed {
                 let taskResult = taskViewController.result
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
                 
                 if(item.identifier == "yadl_spot") {
                     self?.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "spotFileExists")
 
                 }
-                
                 
                 if(item.identifier == "yadl_full"){
                     
@@ -107,7 +112,7 @@ class YADLViewController: UIViewController{
                     let date = Date()
                     
                     self?.store.setValueInState(value: date as NSSecureCoding, forKey: "fullDate")
-      
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "fullFileExists")
                     
                     // save for spot assessment
                     

@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     var window: UIWindow?
     var store: RSStore!
-    var ohmageManager: OhmageOMHManager!
     var taskBuilder: RSTBTaskBuilder!
     var resultsProcessor: RSRPResultsProcessor!
     var CSVBackend: RSRPCSVBackEnd!
@@ -33,35 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
 
-    
-    func initializeOhmage(credentialsStore: OhmageOMHSDKCredentialStore) -> OhmageOMHManager {
-        
-        //Initializa OMH client by loading credentials from OMHClient.plist
-        guard let file = Bundle.main.path(forResource: "OMHClient", ofType: "plist") else {
-            fatalError("Could not initialze OhmageManager")
-        }
-        
-        
-        let omhClientDetails = NSDictionary(contentsOfFile: file)
-        
-        guard let baseURL = omhClientDetails?["OMHBaseURL"] as? String,
-            let clientID = omhClientDetails?["OMHClientID"] as? String,
-            let clientSecret = omhClientDetails?["OMHClientSecret"] as? String else {
-                fatalError("Could not initialze OhmageManager")
-        }
-        
-        if let ohmageManager = OhmageOMHManager(baseURL: baseURL,
-                                                clientID: clientID,
-                                                clientSecret: clientSecret,
-                                                queueStorageDirectory: "ohmageSDK",
-                                                store: credentialsStore) {
-            return ohmageManager
-        }
-        else {
-            fatalError("Could not initialze OhmageManager")
-        }
-        
-    }
+
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
@@ -85,8 +56,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         self.store = RSStore()
-        self.ohmageManager = self.initializeOhmage(credentialsStore: self.store)
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
+        
+        guard self.store.get(key: "signedIn") != nil else {
+            self.store.set(value: false as NSSecureCoding, key: "signedIn")
+            return false
+        }
         
         self.taskBuilder = RSTBTaskBuilder(
             stateHelper: self.store,
@@ -100,10 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             frontEndTransformers: AppDelegate.resultsTransformers,
             backEnd: self.CSVBackend
         )
-//        self.resultsProcessor = RSRPResultsProcessor(
-//            frontEndTransformers: AppDelegate.resultsTransformers,
-//            backEnd: ORBEManager(ohmageManager: self.ohmageManager)
-//        )
+
         
         
         if #available(iOS 10.0, *) {
@@ -147,40 +119,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     open func signOut() {
         
-        self.ohmageManager.signOut { (error) in
-            
-            self.store.reset()
-            
-            DispatchQueue.main.async {
-                self.showViewController(animated: true)
-            }
-            
-        }
+
+    }
+    func signedIn () -> Bool {
+        let isSignedIn = self.store.valueInState(forKey: "signedIn") as! Bool
+        
+        return isSignedIn
     }
     
     open func showViewController(animated: Bool) {
         
-        let storyboard = UIStoryboard(name: "YADLOnboarding", bundle: Bundle.main)
-        let vc = storyboard.instantiateInitialViewController()
-        self.transition(toRootViewController: vc!, animated: animated)
+        if(signedIn()) {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
+            
+        }
+        else {
+            let storyboard = UIStoryboard(name: "YADLOnboarding", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
+        }
         
-        //if not signed in, go to sign in screen
-//        if !self.ohmageManager.isSignedIn {
-//            
-//            let storyboard = UIStoryboard(name: "Onboarding", bundle: Bundle.main)
-//            let vc = storyboard.instantiateInitialViewController()
-//            self.transition(toRootViewController: vc!, animated: animated)
-//            
-//        }
         
-            // if signed in, go to main home screen
-//        else {
-//            
-//            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//            let vc = storyboard.instantiateInitialViewController()
-//            self.transition(toRootViewController: vc!, animated: animated)
-//            
-//        }
     }
     
     // Make sure to include all step generators needed for your survey steps here

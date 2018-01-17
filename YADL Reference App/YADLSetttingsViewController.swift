@@ -14,6 +14,7 @@ import ResearchSuiteAppFramework
 import UserNotifications
 import MessageUI
 import ResearchSuiteResultsProcessor
+import sdlrkx
 
 
 class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate  {
@@ -25,7 +26,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     
     var store: RSStore!
     
-    var items: [String] = ["Take Full Assessment", "Take Spot Assessment","Set Notification Time","Email Full Assessment Data","Email Spot Assessment Data","Sign out"]
+    var items: [String] = ["Take Full Assessment", "Take Spot Assessment","Set Notification Time","Email Full Assessment Data","Email Spot Assessment Data"]
     var fullAssessmentItem: RSAFScheduleItem!
     var spotAssessmentItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
@@ -84,7 +85,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
             cell.textLabel?.text = self.items[indexPath.row]
         }
         
-        cell.textLabel?.textColor = UIColor.init(colorLiteralRed: 0.44, green: 0.66, blue: 0.86, alpha: 1.0)
+        cell.textLabel?.textColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 1.0)
         
         
         return cell
@@ -114,16 +115,28 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         if indexPath.row == 3 {
-            self.sendFullEmail()
+            let shouldSendFullEmail = self.store.valueInState(forKey: "fullFileExists") as! Bool
+            if(shouldSendFullEmail){
+               self.sendFullEmail()
+            }
+            else {
+                let sendMailErrorAlert = UIAlertView(title: "No Full Assessment Saved", message: "Please retake a Full Assessment", delegate: self, cancelButtonTitle: "OK")
+                sendMailErrorAlert.show()
+            }
+            
         }
         
         if indexPath.row == 4 {
-            self.sendSpotEmail()
+            let shouldSendSpotEmail = self.store.valueInState(forKey: "spotFileExists") as! Bool
+            if(shouldSendSpotEmail){
+                self.sendSpotEmail()
+            }
+            else {
+                let sendMailErrorAlert = UIAlertView(title: "No Spot Assessment Saved", message: "Please retake a Spot Assessment", delegate: self, cancelButtonTitle: "OK")
+                sendMailErrorAlert.show()
+            }
         }
         
-        if indexPath.row == 5 {
-            self.signOut()
-        }
         
     }
     
@@ -144,6 +157,8 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     
     func sendSpotEmail() {
         
+        self.store.setValueInState(value: true as NSSecureCoding, forKey: "sendingSpot")
+        self.store.setValueInState(value: false as NSSecureCoding, forKey: "sendingFull")
         let mailComposeViewController = configuredSpotMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
@@ -151,11 +166,12 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
             self.showSendMailErrorAlert()
         }
         
-        self.deleteSpotFile()
     }
     
     func sendFullEmail() {
         
+        self.store.setValueInState(value: true as NSSecureCoding, forKey: "sendingFull")
+        self.store.setValueInState(value: false as NSSecureCoding, forKey: "sendingSpot")
         let mailComposeViewController = configuredFullMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
             self.present(mailComposeViewController, animated: true, completion: nil)
@@ -163,8 +179,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
             self.showSendMailErrorAlert()
         }
         
-        self.deleteFullFile()
-    }
+           }
     
     func configuredSpotMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
@@ -182,7 +197,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
             if FileManager.default.fileExists(atPath: (attach?.path)!){
                 let cert = try NSData(contentsOfFile: (attach?.path)!)  as Data
                 
-                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "YADLSpot")
+                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "YADLSpot.csv")
                 
                 return mailComposerVC
                 
@@ -212,7 +227,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
             if FileManager.default.fileExists(atPath: (attach?.path)!){
                 let cert = try NSData(contentsOfFile: (attach?.path)!)  as Data
                 
-                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "YADLFull")
+                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "YADLFull.csv")
                 
                 return mailComposerVC
                 
@@ -226,11 +241,11 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     func deleteFullFile() {
-        
+        delegate.CSVBackend.removeFileForType(type: YADLFullRaw.self)
     }
     
     func deleteSpotFile() {
-        
+        delegate.CSVBackend.removeFileForType(type: YADLSpotRaw.self)
     }
     
     func showSendMailErrorAlert() {
@@ -240,7 +255,37 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     
     // MARK: MFMailComposeViewControllerDelegate Method
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        let sendingSpot = self.store.valueInState(forKey: "sendingSpot") as! Bool
+        let sendingFull = self.store.valueInState(forKey: "sendingFull") as! Bool
+        
+        if(result == MFMailComposeResult.sent){
+            
+            if (sendingSpot){
+                self.deleteSpotFile()
+                self.store.setValueInState(value: false as NSSecureCoding, forKey: "spotFileExists")
+                self.store.setValueInState(value: false as NSSecureCoding, forKey: "sendingSpot")
+                
+            }
+            if (sendingFull){
+                self.deleteFullFile()
+                self.store.setValueInState(value: false as NSSecureCoding, forKey: "fullFileExists")
+                self.store.setValueInState(value: false as NSSecureCoding, forKey: "sendingFull")
+            }
+        }
+        
+        else {
+            if (sendingSpot){
+               self.store.setValueInState(value: false as NSSecureCoding, forKey: "sendingSpot")
+            }
+            if (sendingFull){
+                self.store.setValueInState(value: false as NSSecureCoding, forKey: "sendingFull")
+            }
+        }
+      
+        
         controller.dismiss(animated: true, completion: nil)
+        
     }
     
     func signOut() {
@@ -271,7 +316,14 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
                     
                     let resultAnswer = timeAnswer?.dateComponentsAnswer
                     self?.setNotification(resultAnswer: resultAnswer!)
+                    DispatchQueue.main.async{
+                        self?.tableView.reloadData()
+                    }
                     
+                }
+                
+                if(item.identifier == "yadl_spot"){
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "spotFileExists")
                 }
                 
                 if(item.identifier == "yadl_full"){
@@ -282,6 +334,9 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
                     
                     self?.store.setValueInState(value: date as NSSecureCoding, forKey: "dateFull")
                     
+                    // save that a full file exists
+                    
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "fullFileExists")
                     
                     // save for spot assessment
                     

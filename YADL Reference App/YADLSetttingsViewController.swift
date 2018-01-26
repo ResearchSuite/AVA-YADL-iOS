@@ -26,7 +26,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     
     var store: RSStore!
     
-    var items: [String] = ["Take Full Assessment", "Take Spot Assessment","Set Notification Time","Email Full Assessment Data","Email Spot Assessment Data"]
+    var items: [String] = ["Take Full Assessment", "Take Spot Assessment","Set Notification Time","Email Full Assessment Data","Email Spot Assessment Data","Sign Out"]
     var fullAssessmentItem: RSAFScheduleItem!
     var spotAssessmentItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
@@ -117,7 +117,7 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         if indexPath.row == 3 {
             let shouldSendFullEmail = self.store.valueInState(forKey: "fullFileExists") as! Bool
             if(shouldSendFullEmail){
-               self.sendFullEmail()
+               self.getSendFullConsent()
             }
             else {
                 let sendMailErrorAlert = UIAlertView(title: "No Full Assessment Saved", message: "Please retake a Full Assessment", delegate: self, cancelButtonTitle: "OK")
@@ -129,12 +129,16 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         if indexPath.row == 4 {
             let shouldSendSpotEmail = self.store.valueInState(forKey: "spotFileExists") as! Bool
             if(shouldSendSpotEmail){
-                self.sendSpotEmail()
+                self.getSendSpotConsent()
             }
             else {
                 let sendMailErrorAlert = UIAlertView(title: "No Spot Assessment Saved", message: "Please retake a Spot Assessment", delegate: self, cancelButtonTitle: "OK")
                 sendMailErrorAlert.show()
             }
+        }
+        
+        if indexPath.row == 5 {
+            self.signOut()
         }
         
         
@@ -155,6 +159,20 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
         self.launchActivity(forItem: notificationItem)
     }
     
+    func getSendSpotConsent() {
+        let alertController = UIAlertController(title: "You can email all of your responses to AVA YADL Spot Assessment to anyone you like in one easy to read file.", message: "Please be mindful of your privacy: this email will use your email provider, will contain all of your responses in this app since you installed it, and once the email is sent it cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            self.sendSpotEmail()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func sendSpotEmail() {
         
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "sendingSpot")
@@ -166,6 +184,20 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
             self.showSendMailErrorAlert()
         }
         
+    }
+    
+    func getSendFullConsent() {
+        let alertController = UIAlertController(title: "You can email all of your responses to AVA YADL Full Assessment to anyone you like in one easy to read file.", message: "Please be mindful of your privacy: this email will use your email provider, will contain all of your responses in this app since you installed it, and once the email is sent it cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            self.sendFullEmail()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func sendFullEmail() {
@@ -289,7 +321,9 @@ class YADLSettingsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func signOut() {
-        
+        let storyboard = UIStoryboard(name: "SignOut", bundle: Bundle.main)
+        let vc = storyboard.instantiateInitialViewController()
+        self.delegate.transition(toRootViewController: vc!, animated: true)
     }
     
     func launchActivity(forItem item: RSAFScheduleItem) {

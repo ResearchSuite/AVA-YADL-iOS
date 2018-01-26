@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ROS-hW-5Ij">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Out View Controller-->
+        <scene sceneID="C4p-1h-EnX">
+            <objects>
+                <viewController id="ROS-hW-5Ij" customClass="SignOutViewController" customModule="YADL_Reference_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XBf-oL-lcJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ki-SP-B1T">
+                                <rect key="frame" x="121" y="307" width="132" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="74A-1U-kWi"/>
+                                    <constraint firstAttribute="width" constant="132" id="TpZ-BD-dDe"/>
+                                </constraints>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signinAction:" destination="ROS-hW-5Ij" eventType="touchUpInside" id="oVB-Us-hQM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Ki-SP-B1T" firstAttribute="centerX" secondItem="XBf-oL-lcJ" secondAttribute="centerX" id="NpG-Nw-yvb"/>
+                            <constraint firstItem="5Ki-SP-B1T" firstAttribute="centerY" secondItem="XBf-oL-lcJ" secondAttribute="centerY" id="z07-93-0p5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VQ8-wr-vr8"/>
+                    </view>
+                    <connections>
+                        <outlet property="signinButton" destination="5Ki-SP-B1T" id="f9v-sI-MIW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8aC-Ue-uz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="189.59999999999999" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+</document>

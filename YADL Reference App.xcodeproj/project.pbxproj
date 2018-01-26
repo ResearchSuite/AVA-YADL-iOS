@@ -16,6 +16,10 @@
 		CF0A6E591FB15422005ADC8F /* yadl_spot.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E581FB15422005ADC8F /* yadl_spot.json */; };
 		CF3D86F62006A5F400C96E9B /* YADLFullRaw+CSVEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3D86F52006A5F400C96E9B /* YADLFullRaw+CSVEncodable.swift */; };
 		CF3D86F82006A87600C96E9B /* YADLSpotRaw+CSVEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3D86F72006A87600C96E9B /* YADLSpotRaw+CSVEncodable.swift */; };
+		CF69833E201BA9A400552801 /* SignOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69833D201BA9A400552801 /* SignOutViewController.swift */; };
+		CF698340201BA9B100552801 /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF69833F201BA9B100552801 /* PasscodeViewController.swift */; };
+		CF698342201BA9D200552801 /* SignOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF698341201BA9D200552801 /* SignOut.storyboard */; };
+		CF698344201BA9DF00552801 /* PasscodeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF698343201BA9DF00552801 /* PasscodeStoryboard.storyboard */; };
 		CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9907351FAFFAAD006149E7 /* AppDelegate.swift */; };
 		CF99073B1FAFFAAE006149E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF9907391FAFFAAE006149E7 /* Main.storyboard */; };
 		CF99073D1FAFFAAE006149E7 /* YADL.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF99073C1FAFFAAE006149E7 /* YADL.xcassets */; };
@@ -53,6 +57,10 @@
 		CF0A6E581FB15422005ADC8F /* yadl_spot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yadl_spot.json; sourceTree = "<group>"; };
 		CF3D86F52006A5F400C96E9B /* YADLFullRaw+CSVEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YADLFullRaw+CSVEncodable.swift"; sourceTree = "<group>"; };
 		CF3D86F72006A87600C96E9B /* YADLSpotRaw+CSVEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YADLSpotRaw+CSVEncodable.swift"; sourceTree = "<group>"; };
+		CF69833D201BA9A400552801 /* SignOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutViewController.swift; sourceTree = "<group>"; };
+		CF69833F201BA9B100552801 /* PasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
+		CF698341201BA9D200552801 /* SignOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignOut.storyboard; sourceTree = "<group>"; };
+		CF698343201BA9DF00552801 /* PasscodeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PasscodeStoryboard.storyboard; sourceTree = "<group>"; };
 		CF9907321FAFFAAD006149E7 /* YADL Reference App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YADL Reference App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9907351FAFFAAD006149E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF99073A1FAFFAAE006149E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +140,8 @@
 				CF3D86F52006A5F400C96E9B /* YADLFullRaw+CSVEncodable.swift */,
 				CF3D86F72006A87600C96E9B /* YADLSpotRaw+CSVEncodable.swift */,
 				CFD434122007F1AD00CD7178 /* YADLSetttingsViewController.swift */,
+				CF69833D201BA9A400552801 /* SignOutViewController.swift */,
+				CF69833F201BA9B100552801 /* PasscodeViewController.swift */,
 			);
 			path = "YADL Reference App";
 			sourceTree = "<group>";
@@ -169,6 +179,8 @@
 				CF9907391FAFFAAE006149E7 /* Main.storyboard */,
 				CF99073E1FAFFAAE006149E7 /* LaunchScreen.storyboard */,
 				CF0A6E541FB14FEE005ADC8F /* YADLOnboarding.storyboard */,
+				CF698341201BA9D200552801 /* SignOut.storyboard */,
+				CF698343201BA9DF00552801 /* PasscodeStoryboard.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -294,8 +306,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF698342201BA9D200552801 /* SignOut.storyboard in Resources */,
 				CF9907631FB0C379006149E7 /* MEDL.xcassets in Resources */,
 				CF9907401FAFFAAE006149E7 /* LaunchScreen.storyboard in Resources */,
+				CF698344201BA9DF00552801 /* PasscodeStoryboard.storyboard in Resources */,
 				CF0A6E571FB15323005ADC8F /* notification.json in Resources */,
 				CF99075C1FB0BB72006149E7 /* sample.json in Resources */,
 				CF9907651FB0C3F1006149E7 /* MEDL.json in Resources */,
@@ -418,8 +432,10 @@
 				CF9907361FAFFAAD006149E7 /* AppDelegate.swift in Sources */,
 				CF3D86F82006A87600C96E9B /* YADLSpotRaw+CSVEncodable.swift in Sources */,
 				CF0A6E511FB14EFA005ADC8F /* YADLViewController.swift in Sources */,
+				CF698340201BA9B100552801 /* PasscodeViewController.swift in Sources */,
 				CF3D86F62006A5F400C96E9B /* YADLFullRaw+CSVEncodable.swift in Sources */,
 				CFD434132007F1AE00CD7178 /* YADLSetttingsViewController.swift in Sources */,
+				CF69833E201BA9A400552801 /* SignOutViewController.swift in Sources */,
 				CF9907591FB0BB3F006149E7 /* RSStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,10 +578,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E8AN4S9FD3;
 				INFOPLIST_FILE = "YADL Reference App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.cornell.tech.foundry.YADL-Reference-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -576,10 +594,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E8AN4S9FD3;
 				INFOPLIST_FILE = "YADL Reference App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.cornell.tech.foundry.YADL-Reference-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

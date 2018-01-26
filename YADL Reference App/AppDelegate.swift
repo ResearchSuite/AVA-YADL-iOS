@@ -40,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let vc = storyboard.instantiateInitialViewController()
         self.transition(toRootViewController: vc!, animated: true)
     }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        if !UserDefaults.standard.bool(forKey: "PassCreated") {
+            UserDefaults.standard.set(false, forKey: "PassCreated")
+        }
+    }
 
     
     
@@ -57,11 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         self.store = RSStore()
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
+        self.store.set(value: true as NSSecureCoding, key: "shouldDoNotif")
         
-        guard self.store.get(key: "signedIn") != nil else {
-            self.store.set(value: false as NSSecureCoding, key: "signedIn")
-            return false
-        }
         
         self.taskBuilder = RSTBTaskBuilder(
             stateHelper: self.store,
@@ -129,18 +132,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     open func showViewController(animated: Bool) {
         
-        if(signedIn()) {
+        if UserDefaults.standard.bool(forKey: "PassCreated"){
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
+        }
+        else {
+            let storyboard = UIStoryboard(name: "PasscodeStoryboard", bundle: Bundle.main)
             let vc = storyboard.instantiateInitialViewController()
             self.transition(toRootViewController: vc!, animated: animated)
             
         }
-        else {
-            let storyboard = UIStoryboard(name: "YADLOnboarding", bundle: Bundle.main)
-            let vc = storyboard.instantiateInitialViewController()
-            self.transition(toRootViewController: vc!, animated: animated)
-        }
-        
+
         
     }
     

@@ -18,7 +18,7 @@ class YADLOnboardingViewController: UIViewController {
     
     let kActivityIdentifiers = "activity_identifiers"
     
-    @IBOutlet weak var startButton: UIButton!
+
     var store: RSStore!
     
     let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -41,10 +41,16 @@ class YADLOnboardingViewController: UIViewController {
  
     }
 
-    @IBAction func startAction(_ sender: Any) {
+    override func viewDidAppear(_ animated: Bool) {
         
-        self.notifItem = AppDelegate.loadScheduleItem(filename: "notification")
-        self.launchActivity(forItem: (self.notifItem)!)
+        let shouldSetNotif = self.store.valueInState(forKey: "shouldDoNotif") as! Bool
+        
+        if(shouldSetNotif){
+            self.notifItem = AppDelegate.loadScheduleItem(filename: "notification")
+            self.launchActivity(forItem: (self.notifItem)!)
+        }
+        
+        
     }
     
     func launchActivity(forItem item: RSAFScheduleItem) {
@@ -71,6 +77,8 @@ class YADLOnboardingViewController: UIViewController {
                     
                     let resultAnswer = timeAnswer?.dateComponentsAnswer
                     self?.setNotification(resultAnswer: resultAnswer!)
+                    
+                    self?.store.set(value: false as NSSecureCoding, key: "shouldDoNotif")
                     
                 }
                 
